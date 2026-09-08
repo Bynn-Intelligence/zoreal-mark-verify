@@ -58,6 +58,8 @@ export interface Payload {
 
 export interface JwsSignature {
   protected: string;
+  /** Unprotected header, RFC 7515 section 7.2.1: carries `x5c`. */
+  header?: { x5c?: string[]; [k: string]: unknown };
   signature: string;
 }
 

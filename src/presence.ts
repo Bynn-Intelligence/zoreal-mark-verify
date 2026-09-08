@@ -1,6 +1,6 @@
 import { equal, fromBase64Url, sha256, toBase64Url } from './bytes.js';
 import { coseKeyThumbprintP256 } from './ckt.js';
-import { jwsClaims, parseGeneralJws, verifyJwsSignature } from './jws.js';
+import { jwsClaims, parseGeneralJws, verifyJwsSignature, x5cOf } from './jws.js';
 import { OID, type TrustAnchors } from './roots.js';
 import type { Grade, PresenceClaims } from './types.js';
 import type { ParsedCert } from './x509/cert.js';
@@ -47,10 +47,10 @@ export async function verifyPresence(presence: unknown, opts: PresenceOptions): 
   const ml = jws.signatures.find((s) => s.header.alg === 'ML-DSA-65');
   if (!es || !ml) throw new Error('presence attestation needs one ES256 and one ML-DSA-65 signature');
 
-  const classical = await chainFromHeader(es.header.x5c, {
+  const classical = await chainFromHeader(x5cOf(es), {
     anchors: opts.anchors.classical, rootCertificates: opts.anchors.rootCertificates, asOf: opts.asOf, family: 'classical',
   });
-  const postQuantum = await chainFromHeader(ml.header.x5c, {
+  const postQuantum = await chainFromHeader(x5cOf(ml), {
     anchors: opts.anchors.postQuantum, rootCertificates: opts.anchors.rootCertificates, asOf: opts.asOf, family: 'post_quantum',
   });
   confirmPairing(classical, postQuantum, { sameLeafKey: false });

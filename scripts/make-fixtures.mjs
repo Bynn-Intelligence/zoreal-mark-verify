@@ -143,9 +143,12 @@ async function jwsGeneral(claims, signers, typ) {
   const payload = b64u(claims);
   const signatures = [];
   for (const s of signers) {
-    const prot = b64u({ alg: s.key.jose, typ, x5c: s.x5c });
+    // The chain rides in the UNPROTECTED header: the post-quantum chain is
+    // over ten kilobytes and an ML-DSA signing message is capped at four by
+    // the production signer. The signature still binds the leaf.
+    const prot = b64u({ alg: s.key.jose, typ });
     const sig = await s.key.signRaw(utf8(`${prot}.${payload}`));
-    signatures.push({ protected: prot, signature: toBase64Url(sig) });
+    signatures.push({ protected: prot, header: { x5c: s.x5c }, signature: toBase64Url(sig) });
   }
   return { payload, signatures };
 }
