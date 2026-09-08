@@ -1,0 +1,262 @@
+/**
+ * The trust anchors, compiled into the build and never fetched.
+ *
+ * A downloaded root means "what does this verifier trust" is answered by
+ * whoever controls the transport, which reduces a purpose-built PKI to the TLS
+ * certificate estate it was supposed to be independent of. A record whose
+ * chains do not reach these anchors is invalid from any source, ZOREAL's own
+ * included, and there is no fallback that accepts an unpinned anchor when the
+ * pinned one fails: that fallback is the attack.
+ *
+ * What is pinned is the SubjectPublicKeyInfo digest, not the certificate
+ * digest. A re-signed root certificate over the same key keeps verifying; only
+ * a change of key breaks the pin, which is the event a pin exists to detect.
+ *
+ * Both roots are required. A verifier that accepted either chain alone would
+ * let an attacker who broke the weaker algorithm forge freely, and the
+ * stronger root would contribute nothing. High-assurance artifacts carry a
+ * valid chain under both, bound by the paired-chain extension.
+ */
+
+export interface TrustAnchors {
+  /** SPKI SHA-256 digests, base64, of the classical (ECDSA P-384) roots. */
+  classical: string[];
+  /** SPKI SHA-256 digests, base64, of the post-quantum (ML-DSA-87) roots. */
+  postQuantum: string[];
+  /** SPKI SHA-256 digests, base64, of the timestamping anchors (RFC 3161). */
+  timestamping: string[];
+  /** Root certificates (PEM) a verifier may use to complete a chain that omits its root. */
+  rootCertificates: string[];
+}
+
+/**
+ * ZOREAL Root CA 1
+ * ECDSA P-384, valid 2026-08-29 to 2076-08-28
+ * SPKI SHA-256 Q6N1FDet9QG5T9UztVKbsXvQylB3eNiN5UIKxDp1p3k=
+ */
+export const ROOT_CA_1 = `-----BEGIN CERTIFICATE-----
+MIICljCCAhygAwIBAgISDwUbVcAybnO8AAG9la1nRY0gMAoGCCqGSM49BAMDMEox
+GTAXBgNVBAMMEFpPUkVBTCBSb290IENBIDExIDAeBgNVBAoMF0J5bm4gSW50ZWxs
+aWdlbmNlLCBJbmMuMQswCQYDVQQGEwJVUzAgFw0yNjA4MjkwNDQ0NDhaGA8yMDc2
+MDgyODA0NDQ0OFowSjEZMBcGA1UEAwwQWk9SRUFMIFJvb3QgQ0EgMTEgMB4GA1UE
+CgwXQnlubiBJbnRlbGxpZ2VuY2UsIEluYy4xCzAJBgNVBAYTAlVTMHYwEAYHKoZI
+zj0CAQYFK4EEACIDYgAERT5FeMUXNcZumoriwdzBuPDH7Pq58Tc9V6Vfc9HWiswh
+SNf6aM1QgcHIBZzTQiGwU/sQeSfSofLQZnl3hs20ustlRFf3AWA4ijGmsL/Th8bm
+qY+GgQTpS3/qlyKHZc1Oo4HCMIG/MA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0PAQH/
+BAQDAgEGMB0GA1UdDgQWBBQb5yGQewpV0MZDhNEz4LrmqRHkhjARBgNVHSAECjAI
+MAYGBFUdIAAwagYKKwYBBAGEiF8CBARcDFp7InNpYmxpbmdfY2VydF9zaGEyNTYi
+OiI1YWYzYzM2NTZmZGQ2M2FlODY3YzI3NTM3ZDBkY2NiNDk2OTY2ZjA5MjRiNDgx
+ZmU1NDQzNmU4M2Q2ZWEwZDA3In0wCgYIKoZIzj0EAwMDaAAwZQIxAIBRBbBay/s+
+pQ0mNjvJahOJKh0rJe+hyK2yU5BOs89NPLn0xIkSuJrlVMs8KOzmIwIwcVbP4KQN
++HgR8U/OD/PX5PG7vo4eKf3dd99NahCWsICiEjTfsWr/+3j8XMipB+A8
+-----END CERTIFICATE-----`;
+
+/**
+ * ZOREAL Post-Quantum Root CA 1
+ * ML-DSA-87, valid 2026-08-29 to 2076-08-28
+ * SPKI SHA-256 rxr4sieLvSvCB/jCnoA56LaZQdqNuC7nq01uHuDnm/0=
+ *
+ * Not hybrid: this certificate carries ONE signature, ML-DSA-87. The pair is
+ * two parallel chains bound by the paired-chain extension, not two signatures
+ * on one certificate.
+ */
+export const PQ_ROOT_CA_1 = `-----BEGIN CERTIFICATE-----
+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
+AAAAAAAAAAAAAAAACAwRGB0nLTU=
+-----END CERTIFICATE-----`;
+
+export const ROOT_CA_1_SPKI_SHA256 = 'Q6N1FDet9QG5T9UztVKbsXvQylB3eNiN5UIKxDp1p3k=';
+export const PQ_ROOT_CA_1_SPKI_SHA256 = 'rxr4sieLvSvCB/jCnoA56LaZQdqNuC7nq01uHuDnm/0=';
+
+/**
+ * DigiCert Trusted Root G4, the anchor `timestamp.digicert.com` chained to when
+ * this was measured on 2026-09-08. A token whose signer does not reach a
+ * timestamping anchor leaves the time unconfirmed; it never confirms it.
+ */
+export const DIGICERT_TRUSTED_ROOT_G4_SPKI_SHA256 = 'Wd8xe/qfTwq3ylFNd3IpaqLHZbh2ZNCLluVzmeNkcpw=';
+
+export const PRODUCTION_ANCHORS: TrustAnchors = Object.freeze({
+  classical: [ROOT_CA_1_SPKI_SHA256],
+  postQuantum: [PQ_ROOT_CA_1_SPKI_SHA256],
+  timestamping: [DIGICERT_TRUSTED_ROOT_G4_SPKI_SHA256],
+  rootCertificates: [ROOT_CA_1, PQ_ROOT_CA_1],
+});
+
+/** The IANA Private Enterprise Number arc of Bynn Intelligence, Inc. */
+export const ZOREAL_ARC = '1.3.6.1.4.1.66655';
+
+export const OID = Object.freeze({
+  presenceRequired: `${ZOREAL_ARC}.2.1`,
+  enrollmentAssurance: `${ZOREAL_ARC}.2.2`,
+  pairedChain: `${ZOREAL_ARC}.2.4`,
+  portraitBinding: `${ZOREAL_ARC}.2.5`,
+  statusList: `${ZOREAL_ARC}.2.6`,
+  ekuPresenceSigning: `${ZOREAL_ARC}.4.1`,
+  ekuRecordService: `${ZOREAL_ARC}.4.2`,
+});
+
+/** The ZOREAL private extensions this verifier declares it understands. */
+export const UNDERSTOOD_ZOREAL_EXTENSIONS: readonly string[] = Object.freeze([
+  OID.presenceRequired,
+  OID.enrollmentAssurance,
+  OID.pairedChain,
+  OID.portraitBinding,
+  OID.statusList,
+]);

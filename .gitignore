@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.DS_Store
+*.tsbuildinfo
+.idea/
+.vscode/
+
+# Generated fixture key material never leaves the machine that made it
+fixtures/keys/
