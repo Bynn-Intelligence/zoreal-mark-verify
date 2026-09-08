@@ -87,9 +87,14 @@ export async function verifyMark(input: VerifyInput, opts: VerifyOptions): Promi
     result.signedUrl = payload.data.url;
     result.assurance = record.assurance;
 
-    // Establish the time everything else is judged at.
+    // Establish the time everything else is judged at: the confirmed
+    // timestamp, or, while it is pending or could not be verified, the
+    // record's own created_at. The presence attestation lives 120 seconds, so
+    // judging a pending record against the verifier's clock would fail every
+    // Mark older than two minutes whose timestamp had not landed yet; the time
+    // is shown as unconfirmed in that case, which is the honest reading.
     const ts = await verifyTimestamp(record, { anchors: anchors.timestamping });
-    const asOf = ts.status === 'confirmed' ? ts.genTime : now();
+    const asOf = ts.status === 'confirmed' ? ts.genTime : createdAtOrNow(record, now());
     const delegated = record.presence && isDelegated(record);
 
     // 3, 4
@@ -307,6 +312,11 @@ interface DelegationClaims {
   expires_at: string;
   max_marks: number;
   iat: string;
+}
+
+function createdAtOrNow(record: MarkRecord, now: Date): Date {
+  const t = typeof record.created_at === 'string' ? new Date(record.created_at) : new Date(NaN);
+  return Number.isFinite(t.getTime()) && t.getTime() <= now.getTime() + 60_000 ? t : now;
 }
 
 function msg(e: unknown): string {
