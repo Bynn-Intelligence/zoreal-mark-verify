@@ -2,7 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/@zoreal/mark-verify)](https://www.npmjs.com/package/@zoreal/mark-verify) [![CI](https://img.shields.io/github/actions/workflow/status/Bynn-Intelligence/zoreal-mark-verify/ci.yml?branch=main&label=CI)](https://github.com/Bynn-Intelligence/zoreal-mark-verify/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
-Verify a ZOREAL Mark: a live, chip-verified human vouched for exactly this
+Verify a ZOREAL Mark: a real human, verified by ZOREAL, vouched for exactly this
 text, on exactly this page, at exactly this time.
 
 ```text
@@ -156,7 +156,7 @@ npm run typecheck
 
 ## What a Mark asserts, and does not
 
-A Mark asserts that a chip-verified human vouched for this text, that a live
+A Mark asserts that a human verified by ZOREAL vouched for this text, that a live
 human was present when it was signed at the stated grade, that it was signed
 for this page, and that it was signed at this time. It does not assert that the
 human wrote the text, that the text is true, that the persona is one person
