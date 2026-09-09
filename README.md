@@ -17,7 +17,7 @@ Node 22 and later.
 ## Status
 
 **Not yet usable against live records.** The record service that serves
-`https://zoreal.com/mark/<id>` is being built. Until it serves records, this
+`https://mark.zoreal.com/<id>` is being built. Until it serves records, this
 package verifies its own conformance fixtures and nothing else. This section is
 kept true.
 
@@ -41,7 +41,7 @@ for (const mark of marks) {
   const result = await verifyMark(mark, {
     pageUrl: location.href,
     fetchRecord: async (id) => {
-      const res = await fetch(`https://zoreal.com/mark/${id}`, { headers: { Accept: 'application/json' }, credentials: 'omit' });
+      const res = await fetch(`https://mark.zoreal.com/${id}`, { headers: { Accept: 'application/json' }, credentials: 'omit' });
       if (res.status === 404) return { status: 'not_found' };
       if (!res.ok) return { status: 'unavailable', reason: `HTTP ${res.status}` };
       return { status: 'ok', record: await res.json() };
