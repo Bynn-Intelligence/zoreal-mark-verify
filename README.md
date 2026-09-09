@@ -6,7 +6,7 @@ Verify a ZOREAL Mark: a live, chip-verified human vouched for exactly this
 text, on exactly this page, at exactly this time.
 
 ```text
-::ZOREAL-SIGNED:: I was at the launch and the demo was real. ::ZOREAL-SIGNATURE:7QK39F2MXR84B5NPD4T6HW2A::
+::ZOREAL-MARK:: I was at the launch and the demo was real. ::ZOREAL-SIGNATURE:7QK39F2MXR84B5NPD4T6HW2A::
 ```
 
 This is the one verifier implementation. The Chrome and Safari extensions, the

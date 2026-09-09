@@ -1,6 +1,6 @@
 export { VERSION } from './version.js';
 export * from './types.js';
-export { findMarks, findBrokenMarkers, wrap, isValidId, OPEN_SIGNED, OPEN_DELEGATED, CLOSE_PREFIX, CLOSE_SUFFIX, ID_PATTERN } from './format.js';
+export { findMarks, findBrokenMarkers, wrap, isValidId, OPEN_MARK, OPEN_DELEGATED, CLOSE_PREFIX, CLOSE_SUFFIX, ID_PATTERN } from './format.js';
 export type { FoundMark, BrokenMarker, Marker } from './format.js';
 export { canonicalText, textHash } from './canonical.js';
 export { normaliseUrl, siteOf, personaContext, TRACKING_PARAMS } from './url.js';

@@ -1,7 +1,7 @@
 /**
  * The inline format.
  *
- *   ::ZOREAL-SIGNED:: <text> ::ZOREAL-SIGNATURE:<id>::
+ *   ::ZOREAL-MARK:: <text> ::ZOREAL-SIGNATURE:<id>::
  *   ::ZOREAL-DELEGATED:: <text> ::ZOREAL-SIGNATURE:<id>::
  *
  * Both markers are ASCII so no platform re-encodes them, and the id is 24
@@ -10,7 +10,7 @@
  * `::ZOREAL-SIGNATURE:` finds every Mark on it.
  */
 
-export const OPEN_SIGNED = '::ZOREAL-SIGNED::';
+export const OPEN_MARK = '::ZOREAL-MARK::';
 export const OPEN_DELEGATED = '::ZOREAL-DELEGATED::';
 export const CLOSE_PREFIX = '::ZOREAL-SIGNATURE:';
 export const CLOSE_SUFFIX = '::';
@@ -41,7 +41,7 @@ export function isValidId(id: string): boolean {
   return ID_PATTERN.test(id);
 }
 
-const OPEN_RE = /::ZOREAL-(SIGNED|DELEGATED)::/g;
+const OPEN_RE = /::ZOREAL-(MARK|DELEGATED)::/g;
 const CLOSE_RE = /::ZOREAL-SIGNATURE:([0-9A-Za-z]{1,64})::/g;
 
 /**
@@ -104,7 +104,7 @@ export function findBrokenMarkers(input: string): BrokenMarker[] {
 /** Wraps text in the markers, the way a signer inserts it. */
 export function wrap(text: string, id: string, marker: Marker = 'signed'): string {
   if (!isValidId(id)) throw new Error('id is not 24 Crockford base32 characters');
-  const open = marker === 'delegated' ? OPEN_DELEGATED : OPEN_SIGNED;
+  const open = marker === 'delegated' ? OPEN_DELEGATED : OPEN_MARK;
   return `${open} ${text} ${CLOSE_PREFIX}${id}${CLOSE_SUFFIX}`;
 }
 
