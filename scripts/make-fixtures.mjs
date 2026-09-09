@@ -324,6 +324,7 @@ function flipByteInB64(s) { const b = Uint8Array.from(Buffer.from(s, 'base64'));
 const PAGE = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share';
 /** The demo page the development mock serves. */
 const DEMO_PAGE = 'http://localhost:4820/demo';
+const SHOWCASE_PAGE = 'http://localhost:4820/showcase';
 const TEXT = 'I was at the launch and the demo was real.';
 const cases = [];
 const records = {};
@@ -342,6 +343,11 @@ await emit('ok-page', okPage, { verdict: 'verified_here', time: 'confirmed' });
 const okDemo = await makeRecord({ text: TEXT, url: DEMO_PAGE });
 await timestamp(okDemo.record);
 await emit('ok-demo-here', okDemo, { verdict: 'verified_here', time: 'confirmed' }, { pageUrl: DEMO_PAGE });
+// The same, for the mock's showcase page: a realistic comment thread used
+// for screenshots, which needs a strong verdict of its own.
+const okShowcase = await makeRecord({ text: 'I was in the room when the vote was taken, and the count announced was the count I saw.', url: SHOWCASE_PAGE });
+await timestamp(okShowcase.record);
+await emit('ok-showcase-here', okShowcase, { verdict: 'verified_here', time: 'confirmed' }, { pageUrl: SHOWCASE_PAGE });
 cases.push({ name: 'ok-page-elsewhere', id: okPage.record.id, text: TEXT, marker: 'signed', pageUrl: 'https://example.org/repost', expect: { verdict: 'verified_other_page' } });
 cases.push({ name: 'ok-page-unknown-location', id: okPage.record.id, text: TEXT, marker: 'signed', pageUrl: null, expect: { verdict: 'verified_other_page' } });
 cases.push({ name: 'ok-page-platform-rewritten', id: okPage.record.id, text: 'I was at  the launch and the demo was real.\n', marker: 'signed', pageUrl: PAGE.replace('&utm_source=share', '#comments'), expect: { verdict: 'verified_here' } });
