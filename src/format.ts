@@ -102,19 +102,26 @@ export function findBrokenMarkers(input: string): BrokenMarker[] {
 }
 
 /** Wraps text in the markers, the way a signer inserts it. */
-export function wrap(text: string, id: string, marker: Marker = 'signed'): string {
+/**
+ * Writes a Mark. The default is the block form, each marker on its own line
+ * with a blank line either side of the text, which reads as a signed message
+ * rather than a string of symbols. The inline form, one space each side, is
+ * for single-line fields that cannot hold a line break. The two are one Mark:
+ * surrounding whitespace is not part of the text and the hash ignores it.
+ */
+export function wrap(text: string, id: string, marker: Marker = 'signed', layout: 'block' | 'inline' = 'block'): string {
   if (!isValidId(id)) throw new Error('id is not 24 Crockford base32 characters');
   const open = marker === 'delegated' ? OPEN_DELEGATED : OPEN_MARK;
-  return `${open} ${text} ${CLOSE_PREFIX}${id}${CLOSE_SUFFIX}`;
+  const close = `${CLOSE_PREFIX}${id}${CLOSE_SUFFIX}`;
+  return layout === 'inline' ? `${open} ${text} ${close}` : `${open}\n\n${text}\n\n${close}`;
 }
 
 /**
- * The format puts one space between each marker and the text. Canonicalisation
- * trims anyway, so this only affects what a UI shows as "the text".
+ * What sits between the markers is the text; the whitespace either side of it
+ * is layout, whether one space (the inline form) or blank lines (the block
+ * form). Canonicalisation would drop it anyway; trimming here keeps what a UI
+ * shows as "the text" the same for both forms.
  */
 function trimSingleSeparators(raw: string): string {
-  let s = raw;
-  if (s.startsWith(' ')) s = s.slice(1);
-  if (s.endsWith(' ')) s = s.slice(0, -1);
-  return s;
+  return raw.trim();
 }

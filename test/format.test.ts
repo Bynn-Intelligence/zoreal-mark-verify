@@ -6,8 +6,14 @@ const ID = '7QK39F2MXR84B5NPD4T6HW2A';
 describe('markers', () => {
   it('wraps and finds a Mark', () => {
     const s = wrap('I was there.', ID);
-    expect(s).toBe(`::ZOREAL-MARK:: I was there. ::ZOREAL-SIGNATURE:${ID}::`);
+    expect(s).toBe(`::ZOREAL-MARK::\n\nI was there.\n\n::ZOREAL-SIGNATURE:${ID}::`);
     expect(findMarks(`before ${s} after`)).toEqual([{ marker: 'signed', text: 'I was there.', id: ID, start: 7, end: 7 + s.length }]);
+    const inline = wrap('I was there.', ID, 'signed', 'inline');
+    expect(inline).toBe(`::ZOREAL-MARK:: I was there. ::ZOREAL-SIGNATURE:${ID}::`);
+    expect(findMarks(inline)[0]?.text).toBe('I was there.');
+    // Any amount of surrounding space or blank lines is layout, not text.
+    const loose = `::ZOREAL-MARK:: \n\nI was there. \n\n\n\n\n::ZOREAL-SIGNATURE:${ID}::`;
+    expect(findMarks(loose)[0]?.text).toBe('I was there.');
   });
 
   it('finds several Marks and treats an inner opening marker as text', () => {
