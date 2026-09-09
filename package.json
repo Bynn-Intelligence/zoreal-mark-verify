@@ -44,7 +44,8 @@
     "build": "tsup",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
-    "fixtures": "npm run build && node scripts/make-fixtures.mjs"
+    "fixtures": "npm run build && node scripts/make-fixtures.mjs",
+    "prepare": "npm run build"
   },
   "dependencies": {
     "@noble/post-quantum": "^0.7.1",
