@@ -322,6 +322,8 @@ function flipByteInB64u(s) { const b = fromBase64Url(s); b[10] ^= 0xff; return t
 function flipByteInB64(s) { const b = Uint8Array.from(Buffer.from(s, 'base64')); b[b.length - 40] ^= 0xff; return toBase64(b); }
 
 const PAGE = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share';
+/** The demo page the development mock serves. */
+const DEMO_PAGE = 'http://localhost:4820/demo';
 const TEXT = 'I was at the launch and the demo was real.';
 const cases = [];
 const records = {};
@@ -335,6 +337,11 @@ async function emit(name, made, expect, extra = {}) {
 const okPage = await makeRecord({ text: TEXT, url: PAGE });
 await timestamp(okPage.record);
 await emit('ok-page', okPage, { verdict: 'verified_here', time: 'confirmed' });
+// Bound to the development demo page itself, so a browser harness opening
+// that page sees a strong verdict, which no record bound elsewhere can give it.
+const okDemo = await makeRecord({ text: TEXT, url: DEMO_PAGE });
+await timestamp(okDemo.record);
+await emit('ok-demo-here', okDemo, { verdict: 'verified_here', time: 'confirmed' }, { pageUrl: DEMO_PAGE });
 cases.push({ name: 'ok-page-elsewhere', id: okPage.record.id, text: TEXT, marker: 'signed', pageUrl: 'https://example.org/repost', expect: { verdict: 'verified_other_page' } });
 cases.push({ name: 'ok-page-unknown-location', id: okPage.record.id, text: TEXT, marker: 'signed', pageUrl: null, expect: { verdict: 'verified_other_page' } });
 cases.push({ name: 'ok-page-platform-rewritten', id: okPage.record.id, text: 'I was at  the launch and the demo was real.\n', marker: 'signed', pageUrl: PAGE.replace('&utm_source=share', '#comments'), expect: { verdict: 'verified_here' } });

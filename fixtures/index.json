@@ -1,7 +1,7 @@
 [
   {
     "name": "ok-page",
-    "id": "XV725MXT7EYC60HCM66KC723",
+    "id": "YJB0QZ6B2JM6AAZ1N4N276PQ",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -11,8 +11,19 @@
     }
   },
   {
+    "name": "ok-demo-here",
+    "id": "92JC5NS4KRXQHRA7NPHWG7SZ",
+    "text": "I was at the launch and the demo was real.",
+    "marker": "signed",
+    "pageUrl": "http://localhost:4820/demo",
+    "expect": {
+      "verdict": "verified_here",
+      "time": "confirmed"
+    }
+  },
+  {
     "name": "ok-page-elsewhere",
-    "id": "XV725MXT7EYC60HCM66KC723",
+    "id": "YJB0QZ6B2JM6AAZ1N4N276PQ",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://example.org/repost",
@@ -22,7 +33,7 @@
   },
   {
     "name": "ok-page-unknown-location",
-    "id": "XV725MXT7EYC60HCM66KC723",
+    "id": "YJB0QZ6B2JM6AAZ1N4N276PQ",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": null,
@@ -32,7 +43,7 @@
   },
   {
     "name": "ok-page-platform-rewritten",
-    "id": "XV725MXT7EYC60HCM66KC723",
+    "id": "YJB0QZ6B2JM6AAZ1N4N276PQ",
     "text": "I was at  the launch and the demo was real.\n",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ#comments",
@@ -42,7 +53,7 @@
   },
   {
     "name": "fail-13-text-altered",
-    "id": "XV725MXT7EYC60HCM66KC723",
+    "id": "YJB0QZ6B2JM6AAZ1N4N276PQ",
     "text": "I was NOT at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -53,7 +64,7 @@
   },
   {
     "name": "fail-16-human-under-delegated-marker",
-    "id": "XV725MXT7EYC60HCM66KC723",
+    "id": "YJB0QZ6B2JM6AAZ1N4N276PQ",
     "text": "I was at the launch and the demo was real.",
     "marker": "delegated",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -64,7 +75,7 @@
   },
   {
     "name": "fail-2-unknown-id",
-    "id": "CBQ7ZGTNAKB9RR0SSCT8QWR6",
+    "id": "MRTFSF24888GEGW8T83X0NBN",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -86,7 +97,7 @@
   },
   {
     "name": "ok-pending-timestamp",
-    "id": "1S4WQH0P8AJBYVPQSATDK1RJ",
+    "id": "DMFDN4K0MHV23V646864E9Y9",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -97,7 +108,7 @@
   },
   {
     "name": "ok-unbound",
-    "id": "8HK92AB89XA1VFRY31NQSNXX",
+    "id": "EZJB6ASTGEC5EG7BQYTPD931",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -107,7 +118,7 @@
   },
   {
     "name": "ok-channel",
-    "id": "QN4KGDTZ7D06MSS53HGJAXBW",
+    "id": "H95XMWQVYBHPRBE7NR9Q0H1M",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://app.slack.com/client/T0/C0",
@@ -117,7 +128,7 @@
   },
   {
     "name": "ok-email",
-    "id": "P3H4730EFA8HNW33JVP6N8RA",
+    "id": "5VZ3QYQG3H6YSMFF6317G85W",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": null,
@@ -134,7 +145,7 @@
   },
   {
     "name": "ok-email-forwarded",
-    "id": "P3H4730EFA8HNW33JVP6N8RA",
+    "id": "5VZ3QYQG3H6YSMFF6317G85W",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": null,
@@ -150,7 +161,7 @@
   },
   {
     "name": "ok-email-other-sender",
-    "id": "P3H4730EFA8HNW33JVP6N8RA",
+    "id": "5VZ3QYQG3H6YSMFF6317G85W",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": null,
@@ -167,7 +178,7 @@
   },
   {
     "name": "ok-live-with-claims",
-    "id": "TZZGKREV5D97ZVS6D2VD9T2Z",
+    "id": "HGPBK36BTQMQ4D6PJFH9GM40",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -184,7 +195,7 @@
   },
   {
     "name": "ok-withdrawn",
-    "id": "YKDN5MGA8N59D7C3R7S07MXY",
+    "id": "SS1H2FVPS1J7YP8F42P3RNFR",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -194,7 +205,7 @@
   },
   {
     "name": "fail-15-withdrawal-bad-signature",
-    "id": "2MBNKCA6GF78Y42401411ZVC",
+    "id": "T9KNC89H75MYDA3FJJ2N7ANH",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -205,7 +216,7 @@
   },
   {
     "name": "ok-appended-events",
-    "id": "1RYB1H5Z6M5Y0WJVXBM4J5EV",
+    "id": "QPKCH296XX73Q3FNM1Z9G8C8",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -217,7 +228,7 @@
   },
   {
     "name": "fail-18-cosigner-count-mismatch",
-    "id": "V72ZZ20NC54EFVVG97DS7AW3",
+    "id": "C8TB16RZV279BQ7R6K9M27NX",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -228,7 +239,7 @@
   },
   {
     "name": "ok-cosign-original",
-    "id": "Z6VAYXAQQ9J7AWKHFJWFCCHW",
+    "id": "16185SKM7W3MED4JCWMRKBA0",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -238,18 +249,18 @@
   },
   {
     "name": "ok-cosign",
-    "id": "K1Z1PVEYYCNS758TCPRN0WTG",
+    "id": "2N6AKGBEG07K4FC53AW3XBEF",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
     "expect": {
       "verdict": "verified_here",
-      "coSigns": "Z6VAYXAQQ9J7AWKHFJWFCCHW"
+      "coSigns": "16185SKM7W3MED4JCWMRKBA0"
     }
   },
   {
     "name": "fail-17-cosign-different-text",
-    "id": "CF12FHVQG9ZMZ1EPATRM7W8G",
+    "id": "D6BBR1QZZXJ1YZPBPSVAXBJK",
     "text": "Different words entirely.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -260,7 +271,7 @@
   },
   {
     "name": "ok-delegated",
-    "id": "4WDV342V5GNHPK4RX9X9FT6Q",
+    "id": "REA1F21G5E81HNW0Y9PVPTT9",
     "text": "Summary of the standup, posted by Aura for Anna.",
     "marker": "delegated",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -270,7 +281,7 @@
   },
   {
     "name": "fail-16-delegated-under-signed-marker",
-    "id": "4WDV342V5GNHPK4RX9X9FT6Q",
+    "id": "REA1F21G5E81HNW0Y9PVPTT9",
     "text": "Summary of the standup, posted by Aura for Anna.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -281,7 +292,7 @@
   },
   {
     "name": "fail-16-delegation-expired",
-    "id": "C89FVPCRXHRBNQWRKAECMWCJ",
+    "id": "C4RVN6SK659JXP0GTMVV522A",
     "text": "Summary of the standup, posted by Aura for Anna.",
     "marker": "delegated",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -292,7 +303,7 @@
   },
   {
     "name": "fail-16-delegation-other-site",
-    "id": "NYHNJTB5QK3PE9YV1WSNR4CB",
+    "id": "CTE85TJJV6BTH6HY1ER97FDP",
     "text": "Summary of the standup, posted by Aura for Anna.",
     "marker": "delegated",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -303,7 +314,7 @@
   },
   {
     "name": "fail-3-unpinned-root",
-    "id": "BVYDPBSDWD2CP9KEZ9ETCWBC",
+    "id": "8FPC6CJYDEQDFDD1JT31BZTH",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -314,7 +325,7 @@
   },
   {
     "name": "fail-3-tampered-ca-certificate",
-    "id": "XNNPR8P3BC25T0W02Q0DMG6H",
+    "id": "6NQWGGAG3MMQ494S4032ZZF9",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -325,7 +336,7 @@
   },
   {
     "name": "fail-4-missing-post-quantum-chain",
-    "id": "4KGSR103T74V3EENFCZBZXJJ",
+    "id": "1SP32M7NKB8CJ5Y7ER37Q4T8",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -336,7 +347,7 @@
   },
   {
     "name": "fail-4-post-quantum-leaf-other-key",
-    "id": "06XKRHWT5B1B4MPGREGP2CCP",
+    "id": "9NZ7T3G2AN6KSS3N5WBR2ZJ5",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -347,7 +358,7 @@
   },
   {
     "name": "fail-4-classical-chain-presented-twice",
-    "id": "ZB6H2R1XHVD05R3T5TENGQV5",
+    "id": "ZV6QVS583WPY5WMT1WBRH7P6",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -358,7 +369,7 @@
   },
   {
     "name": "fail-5-revoked",
-    "id": "KWP64J0QB9R1F3D165G4H0GJ",
+    "id": "8ZARCGRAJ4VCCR8SHJ63Q01H",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -369,7 +380,7 @@
   },
   {
     "name": "fail-5-missing-status-list",
-    "id": "E68DXH1K2RK29VX76FNAEAYJ",
+    "id": "DJ6BQ0M0G5Y3KSWFHKVSP0EB",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -380,7 +391,7 @@
   },
   {
     "name": "fail-6-authentication-certificate",
-    "id": "VQQ5SNEK8EV52Z0B1Z79JQQ3",
+    "id": "HPWDH4F5F5GJKGHRFA6CSTMG",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -391,7 +402,7 @@
   },
   {
     "name": "fail-7-no-presence",
-    "id": "TGGYPNG0M1P384ZYCNVEK3RH",
+    "id": "Y3FRX6HDGFN7XTGT9SE2BJ3M",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -402,7 +413,7 @@
   },
   {
     "name": "fail-8-presence-ml-dsa-signature",
-    "id": "K0XQE97T7E06TC5CEDZ8ET39",
+    "id": "08J2CDKAR7004WBXYH11Q38V",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -413,7 +424,7 @@
   },
   {
     "name": "fail-8-presence-signer-without-eku",
-    "id": "4YE5RM2X8YDPMATACM7PSV0X",
+    "id": "YXWZ608H34GVZ00HPCHGR2EB",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -424,7 +435,7 @@
   },
   {
     "name": "fail-9-presence-wrong-nonce",
-    "id": "AB4RVWPWK2H4VHXPXRH262YZ",
+    "id": "MRFAHED4BVQJB886XG89R92R",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -435,7 +446,7 @@
   },
   {
     "name": "fail-9-presence-expired",
-    "id": "SYJA5Q0GHN7J7JZATNJQ62GR",
+    "id": "G62DM715N8VQF4X4C0DS4Y86",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -446,7 +457,7 @@
   },
   {
     "name": "fail-9-presence-other-device-key",
-    "id": "6AGVCZ0WHWK2NCQS5W8P82HT",
+    "id": "6MBFTNJ3NTA8ARGDTK4RZZA0",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -457,7 +468,7 @@
   },
   {
     "name": "fail-9-presence-detached",
-    "id": "ZKZANG31EYETV1MS8XZ7BXNZ",
+    "id": "FNSED21QEJ65PDFP0VE517Z0",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -468,7 +479,7 @@
   },
   {
     "name": "fail-9-presence-other-holder",
-    "id": "GC5DE9Q8Z4WN07QF55QXNBGA",
+    "id": "92CPJ80N14H01SN1N8T3QTDV",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -479,7 +490,7 @@
   },
   {
     "name": "fail-10-presence-web-channel",
-    "id": "Y8FYEGQ37CPQBJ9YRBQCN46Y",
+    "id": "X9H1BAP905JYYJBTAT0EW29V",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -490,7 +501,7 @@
   },
   {
     "name": "fail-10-presence-delegated-grade-on-human-mark",
-    "id": "WSVF5F7QK9F50VJA3HK0PQ7D",
+    "id": "1TQ7VAWFRTVA7V3ESXXW587R",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -501,7 +512,7 @@
   },
   {
     "name": "fail-11-device-signature",
-    "id": "6CN8AAB51DV4H1BG046WMF7K",
+    "id": "81XSEV2YQXTSSG5A9KDYCJ4B",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -512,7 +523,7 @@
   },
   {
     "name": "fail-11-payload-names-other-certificate",
-    "id": "B4XW189BHYGENXYPKZGG3ZSV",
+    "id": "CPWQD0Q20PG4RJTBXYBD9GX7",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -523,7 +534,7 @@
   },
   {
     "name": "ok-12-timestamp-unverifiable",
-    "id": "RPWRGP3E7Y4EGXSRJXNHR4ET",
+    "id": "9P348E6JXBQV4HCJ1F7T6TVW",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
@@ -534,7 +545,7 @@
   },
   {
     "name": "ok-certificate-expired-after-signing",
-    "id": "BV14GEZ4DAPSMRANJVSWRM4P",
+    "id": "4DN9TEMJCSNNXB48HN3T10JQ",
     "text": "I was at the launch and the demo was real.",
     "marker": "signed",
     "pageUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&utm_source=share",
