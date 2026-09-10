@@ -1,6 +1,6 @@
 {
   "name": "@zoreal/mark-verify",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Verify a ZOREAL Mark: a live, chip-verified human vouched for exactly this text, here, then. The one verifier implementation, shared by the browser extensions, the verify page and the badge script.",
   "license": "MIT",
   "repository": {
